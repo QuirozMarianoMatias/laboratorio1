@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1568558817 source:c:\users\quiroz family\desktop\sillas\main.c
+	<stdlib.h>
+	"sillas.h"
+
+1568503801 c:\users\quiroz family\desktop\sillas\sillas.h
+	<stdio.h>
+
+1568558733 source:c:\users\quiroz family\desktop\sillas\sillas.c
+	"sillas.h"
+
