@@ -7,8 +7,11 @@
 int main()
 {
     eAlumno listaDeAlumnos[A];
+    eLocalidad [3]= {{1,"avellaneda",1800}{2,"varela",1770}{3,"capital",1250}};
     int i;
     int opcion;
+    int legajo;
+
     for(i=0; i<A; i++)
     {
         listaDeAlumnos[i].estado=LIBRE;
@@ -18,7 +21,7 @@ int main()
 
     do
     {
-        printf("1.Cargar\n2.Mostrar\n3.Ordenar\n4.Dar De Baja\n7.Salir");
+        printf("1.Cargar\n2.Mostrar\n3.Ordenar\n4.Dar De Baja\n5.Modificar Nombre\n7.Salir");
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
 
@@ -37,6 +40,13 @@ int main()
 
         case 4:
             darDeBaja(listaDeAlumnos,A);
+            break;
+
+        case 5:
+            printf("\ningrese el legajo que quiere modificar: ");
+            scanf("%d",&legajo);
+            Modificar(listaDeAlumnos,A,legajo);
+
             break;
         }
 
