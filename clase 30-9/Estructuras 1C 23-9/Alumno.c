@@ -222,7 +222,7 @@ int eliminarAlumno(eAlumno listadoDeAlumnos[], int tam)
 
 }
 
-void mostrarAlumnoPorLocalidad(eAlumno ListAlumnos[],int ta,eLocalidad ListaDeLocalidades[],int tl)
+void mostrarAlumnoConLocalidad(eAlumno ListAlumnos[],int ta,eLocalidad ListaDeLocalidades[],int tl)
 {
     int i;
     int index;
@@ -267,5 +267,98 @@ void mostrarLocalidades (eLocalidad listaDeLocalidades[],int t)
         printf("%s\n",listaDeLocalidades[i].localidad);
     }
 }
+void mostrarAlumnoPorLocalidad (eAlumno listaAlumnos[],int ta,eLocalidad listaLocalidad [], int tl)
+
+{
+
+    int i;
+    int j;
 
 
+
+
+    for(i=0; i<tl; i++)
+        {
+            printf("%s\n",listaLocalidad[i].localidad);
+            for (j=0; j<ta;j++)
+            {
+
+                if (listaAlumnos[j].idLocalidad == listaLocalidad[i].idLocalidad)
+                {
+                    printf("%s\n",listaAlumnos[j].nombre);
+
+                }
+            }
+
+        }
+}
+
+void mostrarAlumnosDeAvellaneda(eAlumno listaAlumno[],int ta,eLocalidad listaLocalidad[],int tl)
+{
+    char localidad[30]="Avellaneda";
+    int i;
+    int j;
+
+    printf("Los Alumnos que viven en avellaneda son:\n");
+    for(i=0;i<tl;i++)
+    {
+       if(strcmp(localidad,listaLocalidad[i].localidad)==0)
+       {
+        for(j=0;j<ta;j++)
+        {
+            if(listaAlumno[j].idLocalidad==listaLocalidad[i].idLocalidad)
+               {
+                   printf(listaAlumno[j].nombre);
+                   printf("\n");
+               }
+        }
+       }
+
+    }
+}
+
+void mostrarLocalidadConMenorCantidad(eAlumno listaAlumno[],int tamA,eLocalidad listaLocalidad[],int tamL)
+{
+    eAux aux[3];
+    int i;
+    int j;
+    int flag=0;
+    int min;
+    for(i=0;i<tamL;i++)
+    {
+        aux[i].contadorAlumnos=0;
+        aux[i].idLocalidad=listaLocalidad[i].idLocalidad;
+    }
+    for(i=0;i<tamL;i++)
+    {
+        for(j=0;j<tamA;j++)
+        {
+            if(listaAlumno[j].idLocalidad==aux[i].idLocalidad)
+            {
+                aux[i].contadorAlumnos++;
+            }
+        }
+    }
+    for(i=0;i<tamL;i++)
+    {
+        if(aux[i].contadorAlumnos<min||flag==0)
+        {
+            min=aux[i].contadorAlumnos;
+            flag=1;
+        }
+    }
+    for(i=0;i<tamL;i++)
+    {
+      if(aux[i].contadorAlumnos==min)
+      { for(j=0;j<tamL;j++)
+        {
+            if(aux[i].idLocalidad==listaLocalidad[j].idLocalidad)
+            {
+                printf("%d-->%s\n",aux[i].contadorAlumnos,listaLocalidad[j].localidad);
+            }
+
+        }
+      }
+    }
+
+}

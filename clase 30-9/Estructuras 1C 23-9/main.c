@@ -74,8 +74,11 @@ int main()
             }
             break;
             case 6:
-            mostrarAlumnoPorLocalidad(listaDeAlumnos,A,listaLocalidades,3);
+            mostrarAlumnoConLocalidad(listaDeAlumnos,A,listaLocalidades,3);
             mostrarLocalidades (listaLocalidades,3);
+            mostrarAlumnoPorLocalidad (listaDeAlumnos,A,listaLocalidades,3);
+            mostrarAlumnosDeAvellaneda (listaDeAlumnos,A,listaLocalidades,3);
+            mostrarLocalidadConMenorCantidad (listaDeAlumnos,A,listaLocalidades,3);
 
 
         }

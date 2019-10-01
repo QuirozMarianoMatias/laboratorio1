@@ -26,6 +26,11 @@ typedef struct
     int idLocalidad;
     int estado;
 } eAlumno;
+typedef struct
+{
+    int idLocalidad;
+    int contadorAlumnos;
+}eAux;
 
 eAlumno cargarAlumno(void);
 void mostrarUnAlumno(eAlumno);
@@ -39,7 +44,9 @@ int eliminarAlumno(eAlumno[], int);
 int modificarAlumno(eAlumno[], int, int);
 
 int buscarAlumnoPorLegajo(eAlumno[], int, int);
-void mostrarAlumnoPorLocalidad(eAlumno[],int,eLocalidad[],int);
+void mostrarAlumnoConLocalidad(eAlumno[],int,eLocalidad[],int);
 int buscarAlumnoPorLocalidad(eLocalidad [], int, int);
 void mostrarLocalidades (eLocalidad [],int t);
-
+void mostrarAlumnoPorLocalidad (eAlumno listaAlumnos[],int ta,eLocalidad listaLocalidad [], int tl);
+void mostrarLocalidadConMenorCantidad(eAlumno listaAlumno[],int ta,eLocalidad listaLocalidad[],int tl);
+void mostrarAlumnosDeAvellaneda(eAlumno listaAlumno[],int ta,eLocalidad listaLocalidad[],int tl);
